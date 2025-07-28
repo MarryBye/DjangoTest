@@ -1,0 +1,40 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Start project",
+            "type": "debugpy",
+            "request": "launch",
+            "args": [
+                "runserver"
+            ],
+            "django": true,
+            "autoStartBrowser": false,
+            "program": "${workspaceFolder}\\manage.py"
+        },
+        {
+            "name": "Create new app in ./apps/{appName}",
+            "type": "debugpy",
+            "request": "launch",
+            "preLaunchTask": "Create app folder",
+            "args": [
+                "startapp",
+                "${input:appName}",
+                "--template=${workspaceFolder}/apps/template_app/",
+                "--name=*.py",
+                "--extension=py,html",
+                "${workspaceFolder}/apps/${input:appName}"
+            ],
+            "django": true,
+            "autoStartBrowser": false,
+            "program": "${workspaceFolder}\\manage.py"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "appName",
+            "type": "promptString",
+            "description": "Введите имя нового приложения"
+        }
+    ]
+}

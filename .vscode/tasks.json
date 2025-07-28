@@ -1,0 +1,22 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Create app folder",
+        "type": "shell",
+        "command": "mkdir",
+        "args": [
+          "${workspaceFolder}/apps/${input:appName}"
+        ],
+        "problemMatcher": []
+      }
+    ],
+    "inputs": [
+      {
+        "id": "appName",
+        "type": "promptString",
+        "description": "Введите имя нового приложения"
+      }
+    ]
+  }
+  
