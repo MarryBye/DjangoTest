@@ -1,0 +1,1 @@
+# Pet project on Django for self education
