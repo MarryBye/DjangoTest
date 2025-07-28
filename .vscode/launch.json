@@ -28,6 +28,28 @@
             "django": true,
             "autoStartBrowser": false,
             "program": "${workspaceFolder}\\manage.py"
+        },
+        {
+            "name": "Make migrations",
+            "type": "debugpy",
+            "request": "launch",
+            "args": [
+                "makemigrations"
+            ],
+            "django": true,
+            "autoStartBrowser": false,
+            "program": "${workspaceFolder}\\manage.py"
+        },
+        {
+            "name": "Migrate",
+            "type": "debugpy",
+            "request": "launch",
+            "args": [
+                "migrate"
+            ],
+            "django": true,
+            "autoStartBrowser": false,
+            "program": "${workspaceFolder}\\manage.py"
         }
     ],
     "inputs": [
