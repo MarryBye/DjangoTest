@@ -2,6 +2,17 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Start liveserver",
+            "type": "debugpy",
+            "request": "launch",
+            "args": [
+                "livereload"
+            ],
+            "django": true,
+            "autoStartBrowser": false,
+            "program": "${workspaceFolder}\\manage.py"
+        },
+        {
             "name": "Start project",
             "type": "debugpy",
             "request": "launch",
@@ -13,7 +24,7 @@
             "program": "${workspaceFolder}\\manage.py"
         },
         {
-            "name": "Create new app in ./apps/{appName}",
+            "name": "Create new app",
             "type": "debugpy",
             "request": "launch",
             "preLaunchTask": "Create app folder",
