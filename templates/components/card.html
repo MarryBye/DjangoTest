@@ -1,0 +1,10 @@
+<div class="card" style="width: 18rem;">
+    <img src="{{ img_path | safe }}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">{{ title | safe }}</h5>
+        <p class="card-text">{{ description | safe }}</p>
+        <a href="{% url page_name %}" class="btn btn-primary">Open</a>
+    </div>
+</div>
+
+
