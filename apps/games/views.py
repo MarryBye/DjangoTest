@@ -1,3 +1,10 @@
 from django.shortcuts import render
 
-# Create your views here.
+from django.views.generic import ListView, DetailView
+from apps.games.models import Game
+
+class GameListView(ListView):
+    model = Game
+    template_name = 'games/game_list.html'
+    context_object_name = 'games'
+    paginate_by = 10 

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    {% for game in games %}
+
+        <div class="card" style="width: 18rem;">
+            <img src="{{ game.logo.image.url }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{ game.name | safe }}</h5>
+                <p class="card-text">{{ game.description | safe }}</p>
+                <a href="{% url 'home_page' %}" class="btn btn-primary">Open</a>
+            </div>
+        </div>
+
+    {% endfor %}
+{% endblock %}
