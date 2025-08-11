@@ -10,7 +10,7 @@
             ],
             "django": true,
             "autoStartBrowser": false,
-            "program": "${workspaceFolder}\\manage.py"
+            "program": "${workspaceFolder}/manage.py"
         },
         {
             "name": "Start project",
@@ -21,7 +21,7 @@
             ],
             "django": true,
             "autoStartBrowser": false,
-            "program": "${workspaceFolder}\\manage.py"
+            "program": "${workspaceFolder}/manage.py"
         },
         {
             "name": "Create new app",
@@ -38,7 +38,7 @@
             ],
             "django": true,
             "autoStartBrowser": false,
-            "program": "${workspaceFolder}\\manage.py"
+            "program": "${workspaceFolder}/manage.py"
         },
         {
             "name": "Make migrations",
@@ -49,7 +49,7 @@
             ],
             "django": true,
             "autoStartBrowser": false,
-            "program": "${workspaceFolder}\\manage.py"
+            "program": "${workspaceFolder}/manage.py"
         },
         {
             "name": "Migrate",
@@ -60,7 +60,7 @@
             ],
             "django": true,
             "autoStartBrowser": false,
-            "program": "${workspaceFolder}\\manage.py"
+            "program": "${workspaceFolder}/manage.py"
         }
     ],
     "inputs": [
