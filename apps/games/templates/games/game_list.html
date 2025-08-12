@@ -1,17 +1,36 @@
 {% extends 'base.html' %}
-{% load static %}
 
 {% block content %}
-    {% for game in games %}
 
-        <div class="card" style="width: 18rem;">
-            <img src="{{ game.logo.image.url }}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{ game.name | safe }}</h5>
-                <p class="card-text">{{ game.description | safe }}</p>
-                <a href="{% url 'home_page' %}" class="btn btn-primary">Open</a>
+    <div class="logo-grid">
+        {% for game in page_obj %}
+            <div class="card" style="width: 18rem;">
+                <img src="{{ game.logo.image.url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ game.name | safe }}</h5>
+                    <p class="card-text">{{ game.description | safe }}</p>
+                    <a href="{% url 'home_page' %}" class="btn btn-primary">Open</a>
+                </div>
             </div>
-        </div>
+        {% endfor %}
+    </div>
+      
+    <div class="pagination">
+        {% if page_obj.has_previous %}
+        <a href="{% url 'game_list' %}?page={{ page_obj.previous_page_number }}">Previous page</a>
+        {% endif %}
+    
+        <span>Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}</span>
+    
+        {% if page_obj.has_next %}
+            <a href="{% url 'game_list' %}?page={{ page_obj.next_page_number }}">Next page</a>
+        {% endif %}
+    </div>
 
-    {% endfor %}
+    <form method="GET">
+        {% csrf_token %}
+        {{ filters_form.as_p }}
+        <button type="submit">Search</button>
+    </form>
+
 {% endblock %}
