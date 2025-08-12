@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-    {% include 'components/card.html' with img_path="#" title="dg" description="grfeerg" page_name='home_page' %}
-
+    <main>
+        <h1>Welcome to the Best Gamers Site!</h1>
+        <p>Explore the latest games and join the community.</p>
+        
+        {% include 'components/card.html' with img_path="#" title="Latest Games" description="Check out the latest games available!" page_name='game_list' %}
+    </main>
 {% endblock %}

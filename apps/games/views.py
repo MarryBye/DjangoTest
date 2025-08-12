@@ -8,16 +8,17 @@ from apps.games.forms import GameForm, FilterForm
 def game_list(request):
     
     filters_form = FilterForm(request.GET or None)
-
     filters = {}
     
     for field in filters_form.changed_data:
-        print(field)
+        if field == 'search':
+            filters['name__icontains'] = request.GET.get('search')
+            continue
         filters[field] = request.GET.get(field)
 
     games = Game.objects.filter(**filters)
     
-    pages = paginator.Paginator(games, 2)
+    pages = paginator.Paginator(games, 10)
     page_number = request.GET.get('page')
     page_obj = pages.get_page(page_number)
     
