@@ -2,36 +2,39 @@
 
 {% block content %}
 
-    <main class="container">
+    <main class="container p-4">
         <div class="row">
 
-            <aside class="col-lg-1">
+            <aside class="col-auto pb-4">
                 <form method="GET">
                     {% csrf_token %}
                     {{ filters_form.as_p }}
-                    <button type="submit">Search</button>
+                    <button class="btn btn-primary" type="submit">Search</button>
                 </form>
             </aside>
-        
-            <div class="container col-lg-8">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
-                    {% for game in page_obj %}
-                        <div class="col">
-                            <div class="card">
-                                <img src="{{ game.logo.image.url }}" class="card-img-top" alt="..." loading="lazy">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ game.name | safe }}</h5>
-                                    <p class="card-text">{{ game.description | safe }}</p>
-                                    <a href="{% url 'home_page' %}" class="btn btn-primary">Open</a>
+            
+            <div class="col">
+                    <ul class="list-group">
+                        {% for game in page_obj %}
+                            <li class="list-group mb-4 p-4" style="border: 1px solid rgba(175, 175, 175, 0.5)">
+                                <div class="container d-flex flex-row" style="max-height: 100px">
+                                    <img src="{{ game.logo.image.url }}" alt="IMG LOGO" style="height: 100px; width: 100px">
+                                    <div class="container d-flex flex-column">
+                                        <p>
+                                            <a href="{% url 'game_detail' id=game.id %}" class="link">{{ game.name | safe }}</a>
+                                            <span class="badge text-bg-primary">{{ game.category.name | safe }}</span>
+                                            <span class="badge text-bg-primary">{{ game.complexity.name | safe }}</span>
+                                        </p>
+                                        <p class="overflow-hidden card-desc">{{ game.description | safe }}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    {% endfor %}
+                            </li>
+                        {% endfor %}
+                    </ul>
                 </div>
             </div>
 
         </div>
-
     </main>
 
     <div>
